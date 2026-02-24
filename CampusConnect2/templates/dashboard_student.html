@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="/static/style.css">
+<nav>
+<h2>CampusConnect 🎓</h2>
+<a href="/">Logout</a>
+</nav>
+
+<div class="container">
+<h2>Alumni Directory</h2>
+
+<form method="POST" action="/search">
+<input name="company" placeholder="Search by Company">
+<input name="role" placeholder="Search by Role">
+<button>Search</button>
+</form>
+
+{% for a in alumni %}
+<div class="card">
+<img src="/static/images/default_profile.png" width="80">
+<h3>{{a.name}}</h3>
+<p>🏢 {{a.company}} | 💼 {{a.job_role}}</p>
+<p>📈 Experience: {{a.experience}}</p>
+</div>
+{% endfor %}
+
+<h2>Job Opportunities 💼</h2>
+{% for job in jobs %}
+<div class="card">
+<h3>{{job.title}}</h3>
+<p>🏢 {{job.company}}</p>
+<p>{{job.description}}</p>
+</div>
+{% endfor %}
+</div>
